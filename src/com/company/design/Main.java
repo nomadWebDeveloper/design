@@ -1,6 +1,9 @@
 package com.company.design;
 
 import com.company.design.adapter.*;
+import com.company.design.proxy.Browser;
+import com.company.design.proxy.BrowserProxy;
+import com.company.design.proxy.IBrowser;
 import com.company.design.singleton.Aclazz;
 import com.company.design.singleton.Bclazz;
 import com.company.design.singleton.SocketClient;
@@ -8,30 +11,16 @@ import com.company.design.singleton.SocketClient;
 public class Main {
 
     public static void main(String[] args) {
-//
-//        Aclazz aclazz = new Aclazz();
-//        Bclazz bclazz = new Bclazz();
-//
-//        SocketClient aClient = aclazz.getSocketClient();
-//        SocketClient bClient = bclazz.getSocketClient();
-//        System.out.println("두 객체가 동일한가?");
-//        System.out.println(aClient.equals(bClient));
 
-        HairDryer hairDryer = new HairDryer();
-        connect(hairDryer);
+//        Browser browser = new Browser("www.naver.com");
+//        browser.show();
 
-        Cleaner cleaner = new Cleaner();
-
-        Electronic110V adapter = new SocketAdapter(cleaner);
-        connect(adapter);
-
-        AirConditioner airConditioner = new AirConditioner();
-        Electronic110V airAdapter = new SocketAdapter(airConditioner);
-        connect(airAdapter);
-    }
-
-    public static void connect(Electronic110V electronic110V) {
-        electronic110V.powerOn();
+        IBrowser browser = new BrowserProxy("www.naver.com");
+        browser.show();
+        browser.show();
+        browser.show();
+        browser.show();
+        browser.show();
 
     }
 }
