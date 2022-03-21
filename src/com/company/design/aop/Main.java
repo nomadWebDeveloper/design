@@ -1,7 +1,6 @@
-package com.company.design;
+package com.company.design.aop;
 
 
-import com.company.design.aop.AopBrowser;
 import com.company.design.proxy.IBrowser;
 
 import java.util.concurrent.atomic.AtomicLong;
